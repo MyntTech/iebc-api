@@ -1,6 +1,6 @@
 from rest_framework import decorators, response
-from base.models import Diaspora, County
-from .serializers import DiasporaSerializer, CountySerializer
+from base.models import Diaspora, County, PollingStation
+from .serializers import DiasporaSerializer, CountySerializer,PollingStationSerializer
 
 @decorators.api_view(['GET'])
 def DiasporaList(request):
@@ -34,4 +34,20 @@ def addCounty(request):
     if serializer.is_valid():
         serializer.save()
 
+    return response.Response(serializer.data)
+
+@decorators.api_view(['GET'])
+def pollingStation(request):
+    polling_station_data = PollingStation.objects.all()
+    serializer = PollingStationSerializer(polling_station_data, many=True)
+
+    return response.Response(serializer.data)
+
+@decorators.api_view(['POST'])
+def addStation(request):
+    polling_station_data = request.data
+    serializer = PollingStationSerializer(data=polling_station_data)
+
+    if serializer.is_valid():
+        serializer.save()
     return response.Response(serializer.data)

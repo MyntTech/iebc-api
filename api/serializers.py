@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from base.models import Diaspora, County
+from base.models import Diaspora, County, PollingStation
 
 class DiasporaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,4 +10,9 @@ class DiasporaSerializer(serializers.ModelSerializer):
 class  CountySerializer(serializers.ModelSerializer):
     class Meta:
         model = County
+        fields = '__all__'
+    
+class PollingStationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PollingStation
         fields = '__all__'
