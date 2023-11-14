@@ -1,5 +1,7 @@
 {
     "githubPullRequests.ignoredPullRequestBranches": [
         "main"
-    ]
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/fd8d69f1-5b00-41fb-9478-6af6dd3c7572/resourceGroups/appsvc_linux_centralus2/providers/Microsoft.Web/sites/iebc-api",
+    "appService.deploySubpath": "."
 }
